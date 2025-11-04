@@ -52,9 +52,9 @@ function draw() {
 function keyPressed() {
   if (key === 'p') {
     if(paused === false) {
-      paused = true; console.log('paused');
+      paused = true;
     } else {
-      paused = false; console.log('unpaused')
+      paused = false;
     }
   }
   if (keyCode === UP_ARROW) {
