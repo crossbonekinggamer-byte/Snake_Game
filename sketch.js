@@ -11,7 +11,7 @@ var food;
 var paused = false;
 
 function setup() {
-  createCanvas(1439, 777);
+  createCanvas(1440, 778);
   s = new Snake();
   frameRate(10);
   pickLocation();
