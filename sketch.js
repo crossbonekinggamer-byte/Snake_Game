@@ -8,8 +8,10 @@ var scl = 20;
 
 var food;
 
+var paused = false;
+
 function setup() {
-  createCanvas(1420, 660);
+  createCanvas(600, 600);
   s = new Snake();
   frameRate(10);
   pickLocation();
@@ -27,7 +29,9 @@ function mousePressed() {
   s.total++;
 }
 
-function draw() {
+function draw() { 
+  if (paused === true){
+  } else{
   background(51);
 
   if (s.eat(food)) {
@@ -37,16 +41,22 @@ function draw() {
   s.update();
   s.show();
 
-
   fill(255, 0, 100);
   rect(food.x, food.y, scl, scl);
+}
 }
 
 
 
 
-
 function keyPressed() {
+  if (key === 'p') {
+    if(paused === false) {
+      paused = true; console.log('paused');
+    } else {
+      paused = false; console.log('unpaused')
+    }
+  }
   if (keyCode === UP_ARROW) {
     s.dir(0, -1);
   } else if (keyCode === DOWN_ARROW) {
@@ -56,4 +66,5 @@ function keyPressed() {
   } else if (keyCode === LEFT_ARROW) {
     s.dir(-1, 0);
   }
+
 }
