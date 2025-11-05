@@ -31,7 +31,7 @@ function mousePressed() {
 
 function draw() { 
   if (paused === true){
-  textSize(35);
+  textSize(100);
   textAlign(CENTER, CENTER)
   fill('black')
   text('GAME PAUSED', width/2, height/2)
