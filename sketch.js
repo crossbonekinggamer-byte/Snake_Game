@@ -31,13 +31,22 @@ function mousePressed() {
 
 function draw() { 
   if (paused === true){
-  textSize(100);
+  textSize(50);
+  textStyle(BOLDITALIC)
   textAlign(CENTER, CENTER)
-  fill('black')
+  fill(0)
   text('GAME PAUSED', width/2, height/2)
   fill('white')
   text('GAME PAUSED', width/2 + 3, height/2 - 3)
-  } else{
+  rectMode(CENTER)
+  fill('gray')
+  rect(width/2 + 5, height/2 + 48, 200, 50)
+  textAlign(CENTER,CENTER)
+  textSize(40)
+  textStyle(BOLD)
+  fill(0)
+  text('RESUME', width/2 + 5,height/2 + 50)
+  }else{
   background(51);
 
   if (s.eat(food)) {
@@ -51,8 +60,6 @@ function draw() {
   rect(food.x, food.y, scl, scl);
 }
 }
-
-
 
 
 function keyPressed() {
@@ -73,4 +80,16 @@ function keyPressed() {
     s.dir(-1, 0);
   }
 
+}
+function mouseClicked() {
+  if (mouseX > width/2 - 95) {
+    if (mouseX < width/2 + 105) {
+      if (mouseY > height/2 + 25) {
+        if (mouseY < height/2 + 75) {
+          if(paused = true){
+   paused = false;}
+        }
+      }
+    }
+  }
 }
