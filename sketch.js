@@ -78,7 +78,10 @@ function keyPressed() {
     s.dir(1, 0);
   } else if (keyCode === LEFT_ARROW) {
     s.dir(-1, 0);
+  } else if (key === 'r' || key === 'R') {
+    location.reload();
   }
+
 
 }
 function mouseClicked() {
