@@ -8,6 +8,7 @@ var scl = 20;
 
 
 var score;
+score = 0;
 var food;
 
 var paused = false;
