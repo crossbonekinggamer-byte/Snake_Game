@@ -7,8 +7,7 @@ var s;
 var scl = 20;
 
 
-var score;
-score = 0;
+var score; score = 0;
 var food;
 
 var paused = false;
@@ -32,27 +31,28 @@ function mousePressed() {
   s.total++;
 }
 
-function draw() { 
-  if (paused === true){
+function draw() {  
+  if (paused){
+  push();
   textSize(50);
-  textStyle(BOLDITALIC)
-  textAlign(CENTER, CENTER)
-  fill(0)
-  text('GAME PAUSED', width/2, height/2)
-  fill('white')
-  text('GAME PAUSED', width/2 + 3, height/2 - 3)
-  rectMode(CENTER)
-  fill('gray')
-  rect(width/2 + 5, height/2 + 48, 200, 50)
-  textAlign(CENTER,CENTER)
-  textSize(40)
-  textStyle(BOLD)
-  fill(0)
-  text('RESUME', width/2 + 5,height/2 + 50)
-  }else{
+  textStyle(BOLDITALIC);
+  textAlign(CENTER, CENTER);
+  fill(0);
+  text('GAME PAUSED', width/2, height/2);
+  fill('white');
+  text('GAME PAUSED', width/2 + 3, height/2 - 3);
+  rectMode(CENTER);
+  fill('gray');
+  rect(width/2 + 5, height/2 + 48, 200, 50);
+  textAlign(CENTER,CENTER);
+  textSize(40);
+  textStyle(BOLD);
+  fill(0);
+  text('RESUME', width/2 + 5,height/2 + 50);
+  pop();
+  }else{  
   background(51)
-  fill(255)  
-    }
+  fill(255) 
   
  if (s.eat(food)) {
     pickLocation();
@@ -79,7 +79,7 @@ function draw() {
   text(`Score: ${score}`, 5, 5);
   pop();
 }
-
+}
 
 
 function keyPressed() {
@@ -109,7 +109,7 @@ function mouseClicked() {
     if (mouseX < width/2 + 105) {
       if (mouseY > height/2 + 25) {
         if (mouseY < height/2 + 75) {
-          if(paused = true){
+          if(paused){
    paused = false;}
         }
       }
