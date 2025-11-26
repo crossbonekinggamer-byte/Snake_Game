@@ -6,6 +6,7 @@
 var s;
 var scl = 20;
 
+var score;
 var food;
 
 var paused = false;
@@ -16,6 +17,7 @@ function setup() {
   frameRate(10);
   pickLocation();
 
+
 }
 
 function pickLocation() {
@@ -24,7 +26,6 @@ function pickLocation() {
   food = createVector(floor(random(cols)), floor(random(rows)));
   food.mult(scl);
 }
-
 function mousePressed() {
   s.total++;
 }
@@ -47,19 +48,36 @@ function draw() {
   fill(0)
   text('RESUME', width/2 + 5,height/2 + 50)
   }else{
-  background(51);
-
-  if (s.eat(food)) {
+  background(51)
+  fill(255)  
+    }
+  
+ if (s.eat(food)) {
     pickLocation();
+    score++;
   }
+  if (s.death()) {
+    score = 0;
+  }
+
   s.death();
   s.update();
   s.show();
 
+
+  push();
   fill(255, 0, 100);
   rect(food.x, food.y, scl, scl);
+  pop();
+  
+  push();
+  fill(255)
+  textSize(24);
+  textAlign(LEFT, TOP);
+  text(`Score: ${score}`, 5, 5);
+  pop();
 }
-}
+
 
 
 function keyPressed() {
