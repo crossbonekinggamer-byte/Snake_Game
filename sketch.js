@@ -6,6 +6,7 @@
 var s;
 var scl = 20;
 
+
 var score;
 var food;
 
