@@ -20,13 +20,7 @@ function Snake() {
       return false;
     }
   }
-
-  this.dir = function(x, y) {
-    this.xspeed = x;
-    this.yspeed = y;
-  }
-
-  this.death = function() {
+ this.death = function() {
     for (var i = 0; i < this.tail.length; i++) {
       var pos = this.tail[i];
       var d = dist(this.x, this.y, pos.x, pos.y);
@@ -34,9 +28,16 @@ function Snake() {
         console.log('starting over');
         this.total = 0;
         this.tail = [];
+        return true
       }
     }
+  return false
   }
+  this.dir = function(x, y) {
+    this.xspeed = x;
+    this.yspeed = y;
+  }
+
 
   this.update = function() {
     for (var i = 0; i < this.tail.length - 1; i++) {
@@ -54,7 +55,7 @@ function Snake() {
   }
 
   this.show = function() {
-    fill(248,200,220);
+    fill(290,200,220);
     for (var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, scl, scl);
     }
